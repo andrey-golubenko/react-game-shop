@@ -142,7 +142,7 @@ nav {
 
 @media (max-width: 766px) {
   .tooltip-container {
-    top: -8% !important;
+    top: -6% !important;
   }
   .collection-item {
     display: flex;

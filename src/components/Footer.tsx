@@ -6,7 +6,7 @@ export const Footer: React.FunctionComponent = () => {
             <div className="footer-copyright purple darken-2">
                 <div className="container">
                     © {new Date().getFullYear()} Copyright Text
-                    <a className="grey-text text-lighten-4 right" href="https://github.com/Andrey-Golubenko/react-game-shop.git">Repo</a>
+                    <a className="grey-text text-lighten-4 right" href="https://github.com/Andrey-Golubenko/react-game-shop.git" target="_blank">Repo</a>
                 </div>
             </div>
         </footer>
