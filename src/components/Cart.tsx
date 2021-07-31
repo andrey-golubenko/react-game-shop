@@ -1,18 +1,17 @@
 import React from 'react'
-import {ICartProps} from "../interfaces";
+import {useShopContext} from "../ShopContext";
 
-export const Cart:React.FC <ICartProps>= (props) => {
-    const { quantity = 0, basketShow } = props;
+export const Cart:React.FC = () => {
+
+    const { order, handleBasketShow } = useShopContext();
 
     return (
         <div
             className="cart blue darken-4 white-text"
-            onClick={ basketShow }
+            onClick={ handleBasketShow }
         >
             <i className="material-icons">local_grocery_store</i>
-            <span className="cart-quantity">{ quantity }</span>
+            <span className="cart-quantity">{ order?.length }</span>
         </div>
-
     )
-
 };

@@ -1,11 +1,11 @@
 import React from 'react'
 import {GoodsItem} from "./GoodsItem";
-import {IGoodsListProps} from "../interfaces";
+import {useShopContext} from "../ShopContext";
 
 
-export const GoodsList: React.FC <IGoodsListProps> = (props) => {
+export const GoodsList: React.FC = () => {
 
-    const { goods = [], addOrderItem } = props;
+    const { goods = [] } = useShopContext();
 
     if (!goods.length) {
         return (
@@ -20,7 +20,6 @@ export const GoodsList: React.FC <IGoodsListProps> = (props) => {
                     return <GoodsItem
                         key={good.mainId}
                         {...good}
-                        addOrderItem={ addOrderItem }
                     />
                 })
             }

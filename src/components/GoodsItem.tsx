@@ -1,20 +1,20 @@
 import React from 'react'
-import {IGoods, IAddOrderItem} from "../interfaces";
+import {IGoods} from "../interfaces";
+import {useShopContext} from "../ShopContext";
 
-
-export const GoodsItem: React.FC <IGoods & IAddOrderItem> = (props) => {
-
+export const GoodsItem: React.FC <IGoods > = (props) => {
     const {
         mainId,
         displayName,
         displayDescription,
         price,
         displayAssets,
-        addOrderItem = Function.prototype
     } = props;
 
     const itemImage = displayAssets[0] ;
     const itemPrice = price.finalPrice;
+
+    const { addOrderItem } = useShopContext();
 
     return (
             <div className="card" id={ mainId }>
@@ -28,7 +28,7 @@ export const GoodsItem: React.FC <IGoods & IAddOrderItem> = (props) => {
                 <div className="card-action">
                     <button
                         className="btn"
-                        onClick={ () => addOrderItem({
+                        onClick={ () => addOrderItem!({
                             mainId,
                             displayName,
                             itemPrice

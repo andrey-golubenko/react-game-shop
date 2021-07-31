@@ -1,21 +1,21 @@
 import React, {useEffect} from 'react'
-import {ITooltipProps} from "../interfaces";
+import {useShopContext} from "../ShopContext";
 
-export const Tooltip : React.FC <ITooltipProps>= (props) => {
+export const Tooltip : React.FC = () => {
 
-    const { name, closeToolTip } = props;
+    const { tooltipName, closeTooltip } = useShopContext();
 
     useEffect(() => {
-        const timerId = setTimeout(closeToolTip, 3000);
+        const timerId = setTimeout(closeTooltip!, 3000);
 
         return () => {
             clearTimeout(timerId)
         }
         // eslint-disable-next-line
-    }, [name]);
+    }, [tooltipName]);
 
     return ( <div id="toast-container" className="tooltip-container">
-                <div className="toast">{name } добавлен в корзину</div>
+                <div className="toast">{tooltipName } добавлен в корзину</div>
              </div>
     )
-}
+};

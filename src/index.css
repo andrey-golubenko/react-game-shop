@@ -108,6 +108,8 @@ nav {
 
 .basket-item-delete {
   cursor: pointer;
+  color: red;
+  font-size: 2.2rem
 }
 
 .add-quantity, .delete-quantity {
@@ -152,6 +154,8 @@ nav {
   .collection-item .secondary-content {
     position: absolute;
     right: 5%;
+    top: 100%;
+    transform: translateY(-110%);
   }
   .toast {
     max-width: 90%;

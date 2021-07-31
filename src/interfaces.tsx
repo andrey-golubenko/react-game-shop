@@ -6,13 +6,6 @@ export interface IGoods {
     displayAssets       : {full_background: string}[]
 }
 
-export interface IAddOrderItem {
-    addOrderItem : ( item: IOrderItem  ) => void
-}
-
-export interface IGoodsListProps extends IAddOrderItem {
-    goods : IGoods []
-}
 
 export interface IOrderItem {
     mainId          : string
@@ -21,33 +14,37 @@ export interface IOrderItem {
     orderQuantity?  : number
 }
 
-interface IBasketShow {
-    basketShow  : () => void
+// =============
+
+export interface IShopContext {
+    goods?: IGoods[],
+    setGoods?: ([]) => IGoods[],
+    loading?: boolean,
+    setLoading?: (_:boolean) => boolean,
+    order?: IOrderItem[],
+    isBasketShow?: boolean,
+    tooltipName?: string,
+    addOrderItem?: ( orderItem: IOrderItem  ) => void,
+    deleteOrderItem?: (mainId: string) => void,
+    addOrderQuantity?: (mainId: string) => void,
+    deleteOrderQuantity?: (mainId: string) => void,
+    handleBasketShow?: () => void,
+    closeTooltip?: () => void
 }
 
-interface IDeleteOrderItem {
-    deleteOrderItem : (mainId: string) => void
+export interface IShopState {
+    goods: IGoods[] | [],
+    loading: boolean,
+    order: IOrderItem[] | [],
+    isBasketShow: boolean,
+    tooltipName: string,
 }
 
-interface IAddOrderQuantity {
-    addOrderQuantity: (mainId: string) => void
-}
-
-interface IDeleteOrderQuantity {
-    deleteOrderQuantity: (mainId: string) => void
-}
-
-export interface IBasketItemProps extends IOrderItem, IDeleteOrderItem, IAddOrderQuantity, IDeleteOrderQuantity {}
-
-export interface IBasketListProps extends IBasketShow, IDeleteOrderItem, IAddOrderQuantity, IDeleteOrderQuantity {
-    order: IOrderItem[]
-}
-
-export interface ICartProps extends IBasketShow {
-    quantity    : number
-}
-
-export interface ITooltipProps {
-    name: string
-    closeToolTip: () => void
+export interface IShopAction {
+    type  : string
+    payload?: {
+        mainId?: string
+        orderItem?: IOrderItem
+        goods?: IGoods[]
+    }
 }
