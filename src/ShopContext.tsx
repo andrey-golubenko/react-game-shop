@@ -51,7 +51,6 @@ export const ShopContext: React.FC = (props) => {
     };
 
     const contextValue = {
-        // state,
          goods: state.goods,
          setGoods,
          loading: state.loading,

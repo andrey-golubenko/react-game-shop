@@ -6,7 +6,6 @@ export interface IGoods {
     displayAssets       : {full_background: string}[]
 }
 
-
 export interface IOrderItem {
     mainId          : string
     displayName     : string
