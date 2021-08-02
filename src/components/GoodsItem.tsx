@@ -1,8 +1,9 @@
 import React from 'react'
 import {IGoods} from "../interfaces";
 import {useShopContext} from "../ShopContext";
+import {LoadableImage} from "./LoadableImage/LoadableImage";
 
-export const GoodsItem: React.FC <IGoods > = (props) => {
+export const GoodsItem: React.FC <IGoods> = (props) => {
     const {
         mainId,
         displayName,
@@ -19,7 +20,7 @@ export const GoodsItem: React.FC <IGoods > = (props) => {
     return (
             <div className="card" id={ mainId }>
                 <div className="card-image">
-                    <img src={ itemImage.full_background }  alt=""/>
+                    <LoadableImage src={ itemImage.full_background } />
                 </div>
                 <div className="card-content">
                     <span className="card-title">{ displayName }</span>

@@ -22,6 +22,7 @@ export interface IShopContext {
     order?: IOrderItem[],
     isBasketShow?: boolean,
     tooltipName?: string,
+    isImgVisible?: boolean,
     addOrderItem?: ( orderItem: IOrderItem  ) => void,
     deleteOrderItem?: (mainId: string) => void,
     addOrderQuantity?: (mainId: string) => void,
@@ -53,4 +54,10 @@ export interface IShopAction {
         orderItem?: IOrderItem
         goods?: IGoods[]
     }
+}
+
+export interface ILoadableImageProps {
+    src: string
+    alt?: string
+    onLoad?(): void
 }

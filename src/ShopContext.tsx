@@ -22,7 +22,7 @@ export const ShopContext: React.FC = (props) => {
         loading: true,
         order: [],
         isBasketShow: false,
-        tooltipName: ''
+        tooltipName: '',
     });
 
      state.setGoods = (goods: IGoods[]) => dispatch({ type: SET_GOODS, payload: { goods } });
@@ -50,8 +50,6 @@ export const ShopContext: React.FC = (props) => {
      state.closeTooltip = () => {
         dispatch({ type: CLOSE_TOOLTIP });
     };
-
-
 
     return <EmittedContext.Provider value={ state }>
               { props.children }
