@@ -1,6 +1,9 @@
 import React from 'react'
 import {IOrderItem} from "../interfaces";
 import {useShopContext} from "../ShopContext";
+import {ReactComponent as IconAdd} from '../static/iconAdd.svg'
+import {ReactComponent as IconRemove} from '../static/iconRemove.svg'
+import {ReactComponent as IconDelete} from '../static/iconDelete.svg'
 
 export const BasketItem: React.FC<IOrderItem> = (props) => {
 
@@ -19,18 +22,28 @@ export const BasketItem: React.FC<IOrderItem> = (props) => {
 
 
     return (
-        <li className="collection-item" id={mainId}>
-            { displayName }, в количестве -
+        <li className="collection-item basket-item" id={mainId}>
+            <span className="order-content">
+            <span className="basket-item-name">{ displayName }, в количестве -</span>
             <span className="basket-quantity">
-                <i className="material-icons add-quantity" onClick={ () => addOrderQuantity! (mainId) }>add_circle_outline</i>
+                <IconAdd
+                    className="add-quantity"
+                    onClick={ () => addOrderQuantity! (mainId) }
+                />
                 { orderQuantity }
-                <i className="material-icons delete-quantity" onClick={ () => deleteOrderQuantity! (mainId) }>remove_circle_outline</i>
+                <IconRemove className="material-icons delete-quantity" onClick={ () => deleteOrderQuantity! (mainId) }/>,
             </span>
-           , на сумму = { itemPrice * orderQuantity! } $
-            <span className="secondary-content">
-                <i className="material-icons basket-item-delete" onClick={ () => deleteOrderItem! (mainId) }>delete_forever</i>
+            <span className="basket-item-price">
+                на сумму = { itemPrice * orderQuantity! } $
+            </span>
+            </span>
+
+            <span className="removal-tool">
+                <IconDelete
+                    className="basket-item-delete"
+                    onClick={ () => deleteOrderItem! (mainId) }
+                />
             </span>
         </li>
     )
-
 };

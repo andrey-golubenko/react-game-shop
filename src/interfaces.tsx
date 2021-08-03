@@ -13,16 +13,13 @@ export interface IOrderItem {
     orderQuantity?  : number
 }
 
-// =============
-
-export interface IShopContext {
-    goods?: IGoods[],
-    setGoods?: ([]) => void,
+export interface IShopState {
+    goods?: IGoods[] | [],
     loading?: boolean,
-    order?: IOrderItem[],
+    order?: IOrderItem[] | [],
     isBasketShow?: boolean,
     tooltipName?: string,
-    isImgVisible?: boolean,
+    setGoods?: ([]) => void,
     addOrderItem?: ( orderItem: IOrderItem  ) => void,
     deleteOrderItem?: (mainId: string) => void,
     addOrderQuantity?: (mainId: string) => void,
@@ -31,21 +28,7 @@ export interface IShopContext {
     closeTooltip?: () => void
 }
 
-export interface IShopState {
-    goods: IGoods[] | [],
-    loading: boolean,
-    order: IOrderItem[] | [],
-    isBasketShow: boolean,
-    tooltipName: string,
-
-    setGoods?: (goods: IGoods[]) => void,
-    addOrderItem?: ( orderItem: IOrderItem  ) => void,
-    deleteOrderItem?: (mainId: string) => void,
-    addOrderQuantity?: (mainId: string) => void,
-    deleteOrderQuantity?: (mainId: string) => void,
-    handleBasketShow?: () => void,
-    closeTooltip?: () => void
-}
+export interface IShopContext extends IShopState {}
 
 export interface IShopAction {
     type  : string

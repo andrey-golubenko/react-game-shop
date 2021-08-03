@@ -14,13 +14,13 @@ export const reducer: React.Reducer<IShopState, IShopAction> = (state, { type, p
     switch (type) {
         case ADD_ORDER_ITEM: {
             let newOrder = null;
-            const itemIndex = state.order.findIndex(item => item.mainId === payload!.orderItem!.mainId!);
+            const itemIndex = state.order!.findIndex(item => item.mainId === payload!.orderItem!.mainId!);
             if (itemIndex < 0) {
                 const newItem = {
                     ...payload!.orderItem!,
                     orderQuantity: 1
                 };
-                newOrder = [...state.order, newItem]
+                newOrder = [...state.order!, newItem]
             } else {
                 newOrder = state.order!.map((item, index) => {
                     if (index === itemIndex) {
@@ -40,11 +40,11 @@ export const reducer: React.Reducer<IShopState, IShopAction> = (state, { type, p
             }
         }
         case DELETE_ORDER_ITEM: {
-            return { ...state, order: state.order.filter(item => item.mainId !== payload?.mainId) };}
+            return { ...state, order: state.order!.filter(item => item.mainId !== payload?.mainId) };}
         case ADD_ORDER_QUANTITY: {
             return {
                 ...state,
-                order: state.order.map(item => {
+                order: state.order!.map(item => {
                     if (item.mainId === payload!.mainId!) {
                         return {
                             ...item,
@@ -58,7 +58,7 @@ export const reducer: React.Reducer<IShopState, IShopAction> = (state, { type, p
         case DELETE_ORDER_QUANTITY: {
             return {
                 ...state,
-                order: state.order.map(item => {
+                order: state.order!.map(item => {
                     if (item.mainId === payload!.mainId! && item.orderQuantity! > 0) {
                         return {
                             ...item,

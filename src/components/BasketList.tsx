@@ -1,6 +1,7 @@
 import React from 'react'
 import {BasketItem} from "./BasketItem";
 import {useShopContext} from "../ShopContext";
+import {ReactComponent as IconClose} from '../static/iconClose.svg'
 
 export const BasketList: React.FC = () => {
 
@@ -20,7 +21,7 @@ export const BasketList: React.FC = () => {
                         <li className="collection-item">Корзина пуста!</li> ) }
             <li className="collection-item active purple darken-1 basket-bottom"><span>Общая стомость: { totalPrice } $</span><button className="btn btn-small purple darken-3 checkout-order">Оформить</button>
             </li>
-            <i className="material-icons basket-close" onClick={ handleBasketShow }>close</i>
+            <IconClose className="basket-close" onClick={ handleBasketShow } />
         </ul>
     )
 };
