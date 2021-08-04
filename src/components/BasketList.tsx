@@ -3,7 +3,7 @@ import {BasketItem} from "./BasketItem";
 import {useShopContext} from "../ShopContext";
 import {ReactComponent as IconClose} from '../static/iconClose.svg'
 
-export const BasketList: React.FC = () => {
+const BasketList: React.FC = () => {
 
     const { order = [], handleBasketShow } = useShopContext();
 
@@ -25,3 +25,5 @@ export const BasketList: React.FC = () => {
         </ul>
     )
 };
+
+export default BasketList
