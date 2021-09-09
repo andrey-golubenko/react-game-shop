@@ -1,4 +1,4 @@
-import React, {createContext, useContext, useReducer} from 'react'
+import React, {createContext, useContext, useReducer} from 'react';
 import {IGoods, IOrderItem, IShopContext} from "./interfaces";
 import {reducer} from "./shopReducer";
 import {

@@ -1,5 +1,5 @@
 import React from 'react'
-import {IShopAction, IShopState} from "./interfaces";
+import {IShopAction, IShopState} from './interfaces'
 import {
     CLOSE_TOOLTIP,
     BASKET_SHOW,
@@ -8,7 +8,7 @@ import {
     ADD_ORDER_QUANTITY,
     DELETE_ORDER_QUANTITY,
     SET_GOODS
-} from "./constants";
+} from './constants'
 
 export const reducer: React.Reducer<IShopState, IShopAction> = (state, { type, payload }) => {
     switch (type) {
